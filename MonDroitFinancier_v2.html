@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MonDroitFinancier — Comprendre, Défendre, Décider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#0a0a0a;--blanc:#f5f1ea;--or:#c9a96e;--or2:#a07840;
+  --gris:#6a6a6a;--gris-clair:#e2ddd5;--gris-bg:#f0ece4;
+  --p1:#1a3a28;--p2:#1a2a3c;--p3:#3c2a1a;
+  --vert:#1D9E75;--bleu:#185FA5;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--blanc);color:var(--noir);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(245,241,234,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gris-clair);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--noir);text-decoration:none;letter-spacing:-.01em;}
+.logo span{color:var(--or);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gris);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--noir);}
+.nav-right{display:flex;gap:.6rem;align-items:center;}
+.lang-btn{background:none;border:1px solid var(--gris-clair);padding:.3rem .65rem;font-size:.72rem;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--gris);transition:all .2s;border-radius:2px;}
+.lang-btn.active,.lang-btn:hover{border-color:var(--or);color:var(--or);}
+.nav-scan{background:var(--or);color:var(--noir);border:none;padding:.6rem 1.3rem;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:opacity .2s;}
+.nav-scan:hover{opacity:.85;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;padding-top:62px;}
+.hero-l{background:var(--noir);display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem;position:relative;overflow:hidden;}
+.hero-l::after{content:'';position:absolute;bottom:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(201,169,110,.1) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:1.8rem;animation:fadeUp .5s ease both;}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:700;line-height:1.02;color:#fff;margin-bottom:1.6rem;animation:fadeUp .5s .1s ease both;}
+.hero-h1 em{color:var(--or);font-style:italic;display:block;}
+.hero-sub{font-size:.93rem;color:#888;line-height:1.8;max-width:400px;margin-bottom:2.8rem;animation:fadeUp .5s .2s ease both;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .5s .3s ease both;}
+.btn-or{background:var(--or);color:var(--noir);padding:.9rem 2rem;font-size:.8rem;font-weight:500;border:none;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:opacity .2s;}
+.btn-or:hover{opacity:.85;}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18);padding:.9rem 2rem;font-size:.8rem;font-weight:500;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--or);color:var(--or);}
+.hero-r{background:var(--gris-bg);display:flex;flex-direction:column;justify-content:flex-end;padding:3rem;gap:1rem;position:relative;}
+.hero-badge{position:absolute;top:2rem;right:2rem;background:var(--noir);color:#fff;padding:1.1rem 1.3rem;text-align:center;}
+.hero-badge b{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--or);display:block;line-height:1;}
+.hero-badge small{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#888;}
+.stat{background:#fff;padding:1.5rem;border-left:3px solid var(--or);}
+.stat b{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;display:block;line-height:1;margin-bottom:.3rem;}
+.stat p{font-size:.78rem;color:var(--gris);line-height:1.5;}
+
+/* ── PILIERS ── */
+#piliers{display:grid;grid-template-columns:repeat(3,1fr);}
+.pilier{padding:3.5rem 2.8rem;position:relative;overflow:hidden;text-decoration:none;display:block;transition:filter .3s;}
+.pilier:hover{filter:brightness(1.12);}
+.p1{background:var(--p1);}
+.p2{background:var(--p2);}
+.p3{background:var(--p3);}
+.pilier-n{font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:700;color:rgba(255,255,255,.05);position:absolute;top:0;right:1rem;line-height:1;}
+.pilier-tag{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--or);margin-bottom:.7rem;}
+.pilier-h{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;}
+.pilier-p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.75;}
+.pilier-ul{margin-top:1.8rem;display:flex;flex-direction:column;gap:.55rem;list-style:none;}
+.pilier-ul li{font-size:.74rem;color:rgba(255,255,255,.3);padding-left:.9rem;border-left:1px solid rgba(201,169,110,.2);line-height:1.5;transition:color .2s;}
+.pilier:hover .pilier-ul li{color:rgba(255,255,255,.58);}
+
+/* ── CONTRATSCAN ── */
+#contratscan{background:var(--noir);padding:6rem 2.5rem;}
+.cs-header{text-align:center;margin-bottom:3.5rem;}
+.cs-tag{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:1rem;}
+.cs-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:#fff;line-height:1.08;margin-bottom:1rem;}
+.cs-h2 em{color:var(--or);font-style:italic;}
+.cs-sub{font-size:.88rem;color:#666;max-width:520px;margin:0 auto;line-height:1.75;}
+
+/* Services cards */
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:#111;margin-bottom:1.5px;max-width:900px;margin-left:auto;margin-right:auto;}
+.service-card{background:#0d0d0d;padding:2.5rem;}
+.service-card.selected{background:#0a0a08;border:1px solid var(--or);}
+.service-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(201,169,110,.15);line-height:1;margin-bottom:1rem;}
+.service-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.6rem;}
+.service-desc{font-size:.82rem;color:#666;line-height:1.7;margin-bottom:1.5rem;}
+.service-includes{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.8rem;}
+.service-inc-item{display:flex;gap:.7rem;align-items:flex-start;font-size:.78rem;color:#555;}
+.service-inc-item::before{content:'→';color:var(--or);flex-shrink:0;margin-top:1px;}
+.btn-select{width:100%;background:transparent;border:1px solid #222;color:#555;padding:.8rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.btn-select:hover,.btn-select.active{border-color:var(--or);color:var(--or);background:rgba(201,169,110,.05);}
+
+/* Outil principal */
+.cs-tool{max-width:900px;margin:0 auto;background:#0d0d0d;border:1px solid #1a1a1a;}
+.cs-price-bar{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2rem;background:#080808;border-bottom:1px solid #111;}
+.price-label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#444;}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--or);}
+.price-note{font-size:.7rem;color:#333;}
+
+/* Steps */
+.step-bar{display:flex;border-bottom:1px solid #111;}
+.step-tab{flex:1;padding:.9rem .5rem;text-align:center;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:#333;border-right:1px solid #111;cursor:pointer;transition:all .2s;position:relative;}
+.step-tab:last-child{border-right:none;}
+.step-tab.active{color:var(--or);background:#080808;}
+.step-tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--or);}
+.step-tab.done{color:#2a2a2a;}
+.step-n{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;font-size:.6rem;margin-right:.3rem;background:#111;color:#333;vertical-align:middle;}
+.step-tab.active .step-n{background:var(--or);color:var(--noir);}
+.step-tab.done .step-n{background:#1a1a1a;color:#2a2a2a;}
+
+/* Step content */
+.step-body{padding:2rem;display:none;}
+.step-body.active{display:block;}
+.field-label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#444;display:block;margin-bottom:.5rem;}
+.field-input,.field-select,.field-textarea{width:100%;background:#080808;border:1px solid #1a1a1a;padding:.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:#bbb;outline:none;transition:border-color .2s;}
+.field-input:focus,.field-textarea:focus{border-color:var(--or);}
+.field-textarea{min-height:100px;resize:vertical;}
+.field-select{appearance:none;color:#666;cursor:pointer;}
+.field-group{margin-bottom:1.2rem;}
+.fields-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+/* Upload zone */
+.upload-zone{border:1px dashed #222;padding:2.5rem 2rem;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:1.2rem;position:relative;}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--or);background:rgba(201,169,110,.03);}
+.upload-icon{font-size:2rem;margin-bottom:.8rem;opacity:.3;}
+.upload-title{font-size:.88rem;color:#666;margin-bottom:.3rem;}
+.upload-sub{font-size:.72rem;color:#333;}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.uploaded-files{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;}
+.file-item{display:flex;align-items:center;gap:.8rem;padding:.6rem .8rem;background:#080808;border:1px solid #1a1a1a;font-size:.78rem;color:#888;}
+.file-item-name{flex:1;}
+.file-remove{background:none;border:none;color:#333;cursor:pointer;font-size:.9rem;padding:0;transition:color .2s;}
+.file-remove:hover{color:#e24b4b;}
+
+/* Chat */
+.chat-wrap{max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:1rem;margin-bottom:1.2rem;padding-right:.5rem;}
+.chat-wrap::-webkit-scrollbar{width:2px;}
+.chat-wrap::-webkit-scrollbar-thumb{background:#222;}
+.msg{display:flex;gap:.7rem;align-items:flex-start;}
+.msg.user{flex-direction:row-reverse;}
+.avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:500;flex-shrink:0;}
+.avatar.ai{background:var(--or);color:var(--noir);}
+.avatar.user{background:#1a1a1a;color:#666;}
+.bubble{max-width:80%;padding:.85rem 1rem;font-size:.82rem;line-height:1.65;}
+.bubble.ai{background:#111;border:1px solid #1a1a1a;color:#aaa;border-radius:0 6px 6px 6px;}
+.bubble.user{background:#131208;border:1px solid #1f1f10;color:#aaa;border-radius:6px 0 6px 6px;}
+.bubble strong{color:var(--or);font-weight:500;}
+.bubble ul{margin:.4rem 0 .4rem 1rem;}
+.bubble li{margin-bottom:.25rem;}
+.dots span{display:inline-block;width:5px;height:5px;background:#333;border-radius:50%;animation:dot .8s infinite;margin:0 1px;}
+.dots span:nth-child(2){animation-delay:.15s;}
+.dots span:nth-child(3){animation-delay:.3s;}
+@keyframes dot{0%,80%,100%{transform:scale(.5)}40%{transform:scale(1)}}
+.chat-input-row{display:flex;gap:.7rem;}
+.chat-input{flex:1;background:#080808;border:1px solid #1a1a1a;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:#bbb;outline:none;transition:border-color .2s;}
+.chat-input:focus{border-color:var(--or);}
+.chat-send{background:var(--or);color:var(--noir);border:none;padding:.75rem 1.2rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:opacity .2s;white-space:nowrap;}
+.chat-send:hover{opacity:.85;}
+
+/* Results */
+.result-score-bar{display:flex;align-items:center;gap:1.2rem;padding:1.2rem;background:#080808;border:1px solid #111;margin-bottom:1rem;}
+.score-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--or);line-height:1;}
+.score-info h4{font-size:.9rem;color:#bbb;margin-bottom:.2rem;}
+.score-info p{font-size:.74rem;color:#444;}
+.result-card{border:1px solid #111;margin-bottom:.7rem;overflow:hidden;}
+.rc-head{display:flex;align-items:center;gap:.8rem;padding:.85rem 1rem;background:#090909;}
+.sev{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.sev-h{background:#e24b4b;}.sev-m{background:#e2a14b;}.sev-l{background:#4be29a;}
+.rc-title{font-size:.83rem;font-weight:500;color:#bbb;flex:1;}
+.rc-badge{font-size:.62rem;padding:.18rem .6rem;border-radius:2px;}
+.rb-d{background:rgba(226,75,75,.12);color:#e24b4b;}
+.rb-i{background:rgba(226,161,75,.12);color:#e2a14b;}
+.rb-ok{background:rgba(75,226,154,.12);color:#4be29a;}
+.rc-body{padding:.85rem 1rem;font-size:.78rem;color:#555;line-height:1.65;border-top:1px solid #0d0d0d;}
+.rc-body strong{color:#888;}
+.save{display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;font-size:.72rem;color:#4be29a;font-weight:500;}
+
+.legal-box{background:#050505;border:1px solid #111;padding:1.2rem;margin:1rem 0;}
+.legal-box p{font-size:.72rem;color:#333;line-height:1.6;}
+.legal-box strong{color:#444;}
+
+.result-cta-box{background:#080808;border:1px solid #1a1a1a;padding:1.5rem;text-align:center;margin-top:1rem;}
+.result-cta-box p{font-size:.8rem;color:#555;line-height:1.65;margin-bottom:1rem;}
+.cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+.btn-cta-main{background:var(--or);color:var(--noir);border:none;padding:.8rem 1.8rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:opacity .2s;}
+.btn-cta-main:hover{opacity:.85;}
+.btn-cta-sec{background:transparent;color:#444;border:1px solid #1a1a1a;padding:.8rem 1.8rem;font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;transition:all .2s;}
+.btn-cta-sec:hover{color:#aaa;border-color:#333;}
+
+/* Nav steps */
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #111;}
+.btn-back{background:transparent;color:#444;border:1px solid #1a1a1a;padding:.65rem 1.4rem;font-family:'DM Sans',sans-serif;font-size:.75rem;cursor:pointer;transition:all .2s;}
+.btn-back:hover{color:#aaa;border-color:#333;}
+.btn-next{background:var(--or);color:var(--noir);border:none;padding:.65rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:opacity .2s;}
+.btn-next:hover{opacity:.85;}
+.step-hint{font-size:.7rem;color:#333;}
+
+/* Payment modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:500;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#0d0d0d;border:1px solid #1a1a1a;padding:2.5rem;max-width:460px;width:90%;}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:.5rem;}
+.modal-sub{font-size:.82rem;color:#555;margin-bottom:2rem;line-height:1.6;}
+.modal-price{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--or);margin-bottom:.3rem;}
+.modal-price-note{font-size:.72rem;color:#333;margin-bottom:1.8rem;}
+.modal-field-group{margin-bottom:1rem;}
+.modal-separator{display:flex;align-items:center;gap:.8rem;margin:1.2rem 0;}
+.modal-separator span{font-size:.72rem;color:#333;}
+.modal-separator::before,.modal-separator::after{content:'';flex:1;height:1px;background:#1a1a1a;}
+.btn-pay{width:100%;background:var(--or);color:var(--noir);border:none;padding:1.1rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;transition:opacity .2s;margin-bottom:.8rem;}
+.btn-pay:hover{opacity:.85;}
+.btn-pay-demo{width:100%;background:transparent;color:#444;border:1px solid #1a1a1a;padding:.9rem;font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;transition:all .2s;}
+.btn-pay-demo:hover{color:#aaa;border-color:#333;}
+.modal-note{font-size:.68rem;color:#2a2a2a;text-align:center;margin-top:.8rem;line-height:1.5;}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#333;font-size:1.2rem;cursor:pointer;padding:.4rem;}
+.modal-close:hover{color:#aaa;}
+
+/* Articles */
+#articles{padding:5rem 2.5rem;}
+.sec-hdr{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2.5rem;padding-bottom:1rem;border-bottom:1px solid var(--gris-clair);}
+.sec-hdr h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;}
+.voir-tout{font-size:.72rem;color:var(--gris);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--gris-clair);padding-bottom:2px;transition:all .2s;}
+.voir-tout:hover{color:var(--or);border-color:var(--or);}
+.art-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.5px;background:var(--gris-clair);}
+.art{background:var(--blanc);padding:2rem;cursor:pointer;transition:background .2s;}
+.art:hover{background:#ede8df;}
+.art.big{padding:2.5rem;}
+.art-cat{display:inline-block;font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .7rem;margin-bottom:.9rem;}
+.c-s{background:rgba(26,58,40,.1);color:var(--p1);}
+.c-c{background:rgba(26,42,60,.1);color:var(--p2);}
+.c-f{background:rgba(60,42,26,.1);color:var(--p3);}
+.art-h{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--noir);line-height:1.2;margin-bottom:.8rem;}
+.art.big .art-h{font-size:1.5rem;}
+.art:not(.big) .art-h{font-size:1.05rem;}
+.art-ex{font-size:.8rem;color:var(--gris);line-height:1.65;margin-bottom:.9rem;}
+.art-meta{font-size:.7rem;color:#bbb;display:flex;gap:.7rem;align-items:center;}
+.dot-or{width:3px;height:3px;background:var(--or);border-radius:50%;}
+
+/* Newsletter */
+#newsletter{background:var(--noir);padding:5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.nl-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.7rem);font-weight:700;color:#fff;line-height:1.08;}
+.nl-h em{color:var(--or);font-style:italic;}
+.nl-sub{font-size:.85rem;color:#555;line-height:1.8;margin-top:1rem;}
+.nl-form{display:flex;flex-direction:column;gap:.9rem;}
+.nl-inp{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.85rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:#bbb;outline:none;transition:border-color .2s;}
+.nl-inp:focus{border-color:var(--or);}
+.nl-inp::placeholder{color:#333;}
+.nl-sel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.85rem 1.1rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:#555;outline:none;appearance:none;}
+.nl-btn{background:var(--or);color:var(--noir);border:none;padding:1rem;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:.07em;cursor:pointer;transition:opacity .2s;}
+.nl-btn:hover{opacity:.85;}
+.nl-note{font-size:.68rem;color:#333;line-height:1.5;}
+
+/* Footer */
+footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+.ft-p{font-size:.78rem;color:#333;line-height:1.65;margin-top:.9rem;max-width:220px;}
+.ft-disc{font-size:.65rem;color:#222;margin-top:1.2rem;padding:.8rem;border:1px solid #111;line-height:1.5;}
+.ft-col-t{font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:1.1rem;}
+.ft-links{display:flex;flex-direction:column;gap:.6rem;}
+.ft-links a{font-size:.78rem;color:#333;text-decoration:none;transition:color .2s;}
+.ft-links a:hover{color:#aaa;}
+.ft-bottom{background:#060606;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #0d0d0d;font-size:.68rem;color:#222;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.2rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-r{display:none;}
+  .hero-l{padding:3rem 1.5rem;}
+  #piliers{grid-template-columns:1fr;}
+  .services-grid{grid-template-columns:1fr;}
+  .art-grid{grid-template-columns:1fr;}
+  #newsletter{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem;}
+  footer{grid-template-columns:1fr 1fr;}
+  #contratscan{padding:3.5rem 1.5rem;}
+  #articles{padding:3.5rem 1.5rem;}
+  .fields-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- MODAL PAIEMENT -->
+<div class="modal-overlay" id="payModal">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <p class="modal-title" id="modal-service-title">ContratScan</p>
+    <p class="modal-sub" id="modal-service-desc">Détection de doublons et garanties inutiles par IA</p>
+    <div class="modal-price">6,99 €</div>
+    <p class="modal-price-note">Accès immédiat — Les deux services inclus — Rapport par email</p>
+    <div class="modal-field-group">
+      <label class="field-label">Votre email (pour recevoir le rapport)</label>
+      <input class="field-input" type="email" id="pay-email" placeholder="votre@email.fr">
+    </div>
+    <div class="modal-field-group">
+      <label class="field-label">Numéro de carte</label>
+      <input class="field-input" type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+    </div>
+    <div class="fields-row">
+      <div class="modal-field-group">
+        <label class="field-label">Expiration</label>
+        <input class="field-input" type="text" placeholder="MM/AA" maxlength="5">
+      </div>
+      <div class="modal-field-group">
+        <label class="field-label">CVV</label>
+        <input class="field-input" type="text" placeholder="123" maxlength="3">
+      </div>
+    </div>
+    <button class="btn-pay" onclick="processPay()">Payer 6,99 € et accéder à l'analyse</button>
+    <div class="modal-separator"><span>ou</span></div>
+    <button class="btn-pay-demo" onclick="demoAccess()">Tester la démo gratuite</button>
+    <p class="modal-note">Paiement sécurisé · Stripe · Aucun remboursement pour les rapports générés</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Mon<span>Droit</span>Financier</a>
+  <ul class="nav-links">
+    <li><a href="#piliers">Sinistres</a></li>
+    <li><a href="#piliers">Crédit</a></li>
+    <li><a href="#piliers">Finances</a></li>
+    <li><a href="#contratscan" class="active">ContratScan IA</a></li>
+    <li><a href="#articles">Articles</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="nav-scan" onclick="openModal('scan')">ContratScan — 6,99 €</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <p class="hero-eyebrow" data-fr="Le guide financier du particulier" data-en="The individual's financial guide">Le guide financier du particulier</p>
+    <h1 class="hero-h1">
+      <span data-fr="Ce que votre assureur" data-en="What your insurer">Ce que votre assureur</span>
+      <span data-fr="ne vous dira" data-en="will never">ne vous dira</span>
+      <em data-fr="jamais." data-en="tell you.">jamais.</em>
+    </h1>
+    <p class="hero-sub" data-fr="Sinistres mal remboursés, crédit mal négocié, garanties payées deux fois. Nous décryptons vos contrats — avec l'intelligence artificielle." data-en="Poor payouts, bad credit deals, duplicate coverage. We decode your contracts — powered by AI.">Sinistres mal remboursés, crédit mal négocié, garanties payées deux fois. Nous décryptons vos contrats — avec l'intelligence artificielle.</p>
+    <div class="hero-actions">
+      <a href="#contratscan" class="btn-or" data-fr="Analyser mes contrats — 6,99 €" data-en="Analyse my contracts — €6.99">Analyser mes contrats — 6,99 €</a>
+      <a href="#piliers" class="btn-ghost" data-fr="Lire les guides" data-en="Read the guides">Lire les guides</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-badge"><b>IA</b><small data-fr="Propulsé" data-en="Powered">Propulsé</small></div>
+    <div class="stat"><b>1 / 3</b><p data-fr="Français sous-indemnisés après un sinistre" data-en="French people under-compensated after claims">Français sous-indemnisés après un sinistre</p></div>
+    <div class="stat"><b>+12 000 €</b><p data-fr="Économie moyenne sur un crédit bien renégocié" data-en="Average savings on a well-renegotiated mortgage">Économie moyenne sur un crédit bien renégocié</p></div>
+    <div class="stat"><b>68 %</b><p data-fr="Des assurés ont au moins une garantie en double" data-en="Of policyholders have at least one duplicate coverage">Des assurés ont au moins une garantie en double</p></div>
+  </div>
+</section>
+
+<!-- PILIERS -->
+<section id="piliers">
+  <a href="#" class="pilier p1">
+    <span class="pilier-n">01</span>
+    <p class="pilier-tag" data-fr="Pilier 1 — Vos droits" data-en="Pillar 1 — Your rights">Pilier 1 — Vos droits</p>
+    <h2 class="pilier-h" data-fr="Sinistres & Litiges" data-en="Claims & Disputes">Sinistres & Litiges</h2>
+    <p class="pilier-p" data-fr="Comment obtenir ce que vous devez réellement recevoir. Recours, délais, erreurs à ne pas commettre." data-en="How to get what you're truly owed. Appeals, deadlines, mistakes to avoid.">Comment obtenir ce que vous devez réellement recevoir. Recours, délais, erreurs à ne pas commettre.</p>
+    <ul class="pilier-ul">
+      <li data-fr="Mon assureur refuse — que faire ?" data-en="My insurer refuses — what to do?">Mon assureur refuse — que faire ?</li>
+      <li data-fr="Contester un rapport d'expert" data-en="Challenging an expert report">Contester un rapport d'expert</li>
+      <li data-fr="Les 7 erreurs qui réduisent l'indemnisation" data-en="7 mistakes that reduce your payout">Les 7 erreurs qui réduisent l'indemnisation</li>
+      <li data-fr="Recours amiable vs tribunal" data-en="Amicable appeal vs. court">Recours amiable vs tribunal</li>
+    </ul>
+  </a>
+  <a href="#" class="pilier p2">
+    <span class="pilier-n">02</span>
+    <p class="pilier-tag" data-fr="Pilier 2 — Votre crédit" data-en="Pillar 2 — Your credit">Pilier 2 — Votre crédit</p>
+    <h2 class="pilier-h" data-fr="Crédit & Immobilier" data-en="Credit & Property">Crédit & Immobilier</h2>
+    <p class="pilier-p" data-fr="Ce que votre banque ne vous explique pas. Renégociation, assurance emprunteur, frais cachés." data-en="What your bank doesn't explain. Renegotiation, mortgage insurance, hidden fees.">Ce que votre banque ne vous explique pas. Renégociation, assurance emprunteur, frais cachés.</p>
+    <ul class="pilier-ul">
+      <li data-fr="Renégocier : le bon moment et la méthode" data-en="Renegotiating: right time and method">Renégocier : le bon moment et la méthode</li>
+      <li data-fr="Assurance emprunteur : économisez 10 000 €" data-en="Mortgage insurance: save £10,000">Assurance emprunteur : économisez 10 000 €</li>
+      <li data-fr="Les frais de dossier abusifs" data-en="Abusive processing fees">Les frais de dossier abusifs</li>
+      <li data-fr="Rachat de crédit : pièges et opportunités" data-en="Loan buyout: traps and opportunities">Rachat de crédit : pièges et opportunités</li>
+    </ul>
+  </a>
+  <a href="#" class="pilier p3">
+    <span class="pilier-n">03</span>
+    <p class="pilier-tag" data-fr="Pilier 3 — Votre budget" data-en="Pillar 3 — Your budget">Pilier 3 — Votre budget</p>
+    <h2 class="pilier-h" data-fr="Finances Personnelles" data-en="Personal Finance">Finances Personnelles</h2>
+    <p class="pilier-p" data-fr="Comprendre ses contrats, gérer ses dettes, épargner sans se faire avoir. Le guide sans langue de bois." data-en="Understanding contracts, managing debt, saving smart. The no-nonsense guide.">Comprendre ses contrats, gérer ses dettes, épargner sans se faire avoir. Le guide sans langue de bois.</p>
+    <ul class="pilier-ul">
+      <li data-fr="Lire un contrat en 10 minutes" data-en="Read a contract in 10 minutes">Lire un contrat en 10 minutes</li>
+      <li data-fr="Surendettement : vos droits" data-en="Over-indebtedness: your rights">Surendettement : vos droits</li>
+      <li data-fr="PEL, Livret A, assurance-vie : que choisir ?" data-en="Savings accounts: what to choose?">PEL, Livret A, assurance-vie : que choisir ?</li>
+      <li data-fr="Frais bancaires cachés" data-en="Hidden bank charges">Frais bancaires cachés</li>
+    </ul>
+  </a>
+</section>
+
+<!-- CONTRATSCAN -->
+<section id="contratscan">
+  <div class="cs-header">
+    <p class="cs-tag">ContratScan — Propulsé par IA</p>
+    <h2 class="cs-h2">Vos contrats analysés.<br><em>En quelques minutes.</em></h2>
+    <p class="cs-sub">Uploadez vos documents. Notre IA détecte les doublons, rappelle les exclusions, et analyse votre couverture. Rapport immédiat + copie par email.</p>
+  </div>
+
+  <!-- Choix service -->
+  <div class="services-grid" id="serviceGrid">
+    <div class="service-card" id="card1">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Détection de doublons</h3>
+      <p class="service-desc">Vous payez peut-être deux fois la même garantie sans le savoir. L'IA croise vos contrats et identifie les chevauchements.</p>
+      <div class="service-includes">
+        <div class="service-inc-item">Upload PDF ou photos de vos contrats</div>
+        <div class="service-inc-item">Extraction automatique des garanties</div>
+        <div class="service-inc-item">Détection des chevauchements</div>
+        <div class="service-inc-item">Rappel des exclusions importantes</div>
+        <div class="service-inc-item">Rapport immédiat + email</div>
+      </div>
+      <button class="btn-select" id="btn1" onclick="selectService(1)">Choisir ce service</button>
+    </div>
+    <div class="service-card" id="card2">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Avis de prise en charge</h3>
+      <p class="service-desc">Vous avez un sinistre ou une situation à faire valoir ? L'IA analyse votre contrat et vérifie si vous êtes couvert.</p>
+      <div class="service-includes">
+        <div class="service-inc-item">Description libre de votre situation</div>
+        <div class="service-inc-item">Upload de votre contrat concerné</div>
+        <div class="service-inc-item">Analyse garanties vs situation</div>
+        <div class="service-inc-item">Réponse : couvert / non couvert / à vérifier</div>
+        <div class="service-inc-item">Exclusions applicables rappelées</div>
+      </div>
+      <button class="btn-select" id="btn2" onclick="selectService(2)">Choisir ce service</button>
+    </div>
+  </div>
+
+  <!-- Outil -->
+  <div class="cs-tool" id="csTool" style="display:none;">
+    <div class="cs-price-bar">
+      <div>
+        <p class="price-label" id="tool-service-label">Service 1 — Détection de doublons</p>
+      </div>
+      <div style="text-align:right;">
+        <div class="price-val">6,99 €</div>
+        <p class="price-note">Accès déverrouillé · Rapport par email inclus</p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="step-bar">
+      <div class="step-tab active" id="tab1"><span class="step-n">1</span><span id="tab1-label">Documents</span></div>
+      <div class="step-tab" id="tab2"><span class="step-n">2</span><span id="tab2-label">Informations</span></div>
+      <div class="step-tab" id="tab3"><span class="step-n">3</span>Analyse IA</div>
+      <div class="step-tab" id="tab4"><span class="step-n">4</span>Rapport</div>
+    </div>
+
+    <!-- STEP 1 : Documents -->
+    <div class="step-body active" id="step1">
+      <div class="field-group">
+        <label class="field-label" id="upload-label">Uploadez vos contrats (PDF ou photos)</label>
+        <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+          <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.webp" style="display:none" onchange="handleFiles(this.files)">
+          <div class="upload-icon">↑</div>
+          <p class="upload-title" id="upload-zone-title">Glissez vos fichiers ici ou cliquez pour parcourir</p>
+          <p class="upload-sub" id="upload-zone-sub">PDF, JPG, PNG — Max 10 Mo par fichier</p>
+        </div>
+        <div class="uploaded-files" id="fileList"></div>
+      </div>
+      <div class="field-group" id="situationFieldGroup" style="display:none;">
+        <label class="field-label">Décrivez votre situation (sinistre, litige...)</label>
+        <textarea class="field-textarea" id="situationText" placeholder="Ex : Le 15 mars, ma voiture a été endommagée dans un parking. L'autre conducteur a pris la fuite. Je veux savoir si mon contrat auto couvre ce cas..."></textarea>
+      </div>
+      <div class="step-nav">
+        <span class="step-hint" id="step1-hint">Étape 1 sur 4</span>
+        <button class="btn-next" onclick="goStep(2)">Continuer →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 : Informations -->
+    <div class="step-body" id="step2">
+      <div class="fields-row">
+        <div class="field-group">
+          <label class="field-label">Situation professionnelle</label>
+          <select class="field-input field-select" id="f-situation">
+            <option value="">Choisir...</option>
+            <option value="salarie">Salarié(e)</option>
+            <option value="independant">Indépendant / TNS</option>
+            <option value="fonctionnaire">Fonctionnaire</option>
+            <option value="retraite">Retraité(e)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Situation familiale</label>
+          <select class="field-input field-select" id="f-famille">
+            <option value="">Choisir...</option>
+            <option value="seul">Célibataire sans enfant</option>
+            <option value="couple">En couple sans enfant</option>
+            <option value="famille">En famille avec enfant(s)</option>
+          </select>
+        </div>
+      </div>
+      <div class="fields-row">
+        <div class="field-group">
+          <label class="field-label">Budget mensuel assurances estimé</label>
+          <input class="field-input" type="text" id="f-budget" placeholder="Ex : 180 €">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Avez-vous un crédit immobilier ?</label>
+          <select class="field-input field-select" id="f-credit">
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+            <option value="projet">Projet en cours</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Informations complémentaires (optionnel)</label>
+        <textarea class="field-textarea" id="f-infos" placeholder="Ex : j'ai une carte Visa Premier, je bénéficie de la mutuelle de mon employeur..."></textarea>
+      </div>
+      <div class="step-nav">
+        <button class="btn-back" onclick="goStep(1)">← Retour</button>
+        <button class="btn-next" onclick="goStep(3)">Lancer l'analyse IA →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 : Chat IA -->
+    <div class="step-body" id="step3">
+      <div class="chat-wrap" id="chatWrap"></div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" placeholder="Posez une question sur votre analyse..." onkeydown="if(event.key==='Enter')sendMsg()">
+        <button class="chat-send" onclick="sendMsg()">Envoyer</button>
+      </div>
+      <div class="step-nav">
+        <button class="btn-back" onclick="goStep(2)">← Retour</button>
+        <button class="btn-next" onclick="goStep(4)">Voir le rapport →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 : Rapport -->
+    <div class="step-body" id="step4">
+      <div id="reportContainer"></div>
+      <div class="step-nav">
+        <button class="btn-back" onclick="goStep(3)">← Affiner l'analyse</button>
+        <button class="btn-next" onclick="resetTool()">Nouvelle analyse</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="sec-hdr">
+    <h2 data-fr="Articles récents" data-en="Recent articles">Articles récents</h2>
+    <a href="#" class="voir-tout" data-fr="Voir tout →" data-en="View all →">Voir tout →</a>
+  </div>
+  <div class="art-grid">
+    <article class="art big">
+      <span class="art-cat c-s">Sinistres</span>
+      <h3 class="art-h">Mon assureur propose une indemnisation — comment savoir si c'est juste ?</h3>
+      <p class="art-ex">Après un sinistre, l'assureur envoie un expert puis une offre. Cette offre est-elle vraiment à votre avantage ? Voici comment vérifier en 3 étapes avant de signer.</p>
+      <div class="art-meta"><span>8 min</span><span class="dot-or"></span><span>Guide pratique</span></div>
+    </article>
+    <article class="art">
+      <span class="art-cat c-c">Crédit</span>
+      <h3 class="art-h">Renégocier son crédit : le guide complet 2025</h3>
+      <p class="art-ex">Les taux ont bougé. Voici exactement quand et comment agir pour économiser des milliers d'euros.</p>
+      <div class="art-meta"><span>6 min</span><span class="dot-or"></span><span>Analyse</span></div>
+    </article>
+    <article class="art">
+      <span class="art-cat c-f">Finances</span>
+      <h3 class="art-h">Ces 5 frais bancaires que vous payez sans le savoir</h3>
+      <p class="art-ex">Un audit rapide de vos relevés peut vous faire économiser 200 € par an. Voici comment en 15 minutes.</p>
+      <div class="art-meta"><span>4 min</span><span class="dot-or"></span><span>Pratique</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div>
+    <h2 class="nl-h">Recevez les guides<br><em>avant tout le monde</em></h2>
+    <p class="nl-sub">Chaque semaine, un article pratique sur vos droits financiers. Sans jargon. Sans publicité. Juste l'essentiel pour défendre vos intérêts.</p>
+  </div>
+  <div class="nl-form">
+    <input class="nl-inp" type="email" placeholder="votre@email.fr">
+    <select class="nl-sel">
+      <option value="" disabled selected>Votre situation principale</option>
+      <option>Sinistre en cours</option>
+      <option>Renégocier mon crédit</option>
+      <option>Détecter mes doublons</option>
+      <option>Tout m'intéresse</option>
+    </select>
+    <button class="nl-btn">Recevoir les guides gratuits</button>
+    <p class="nl-note">Aucun spam. Désinscription en un clic. Données jamais vendues ni transmises.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a href="#" class="logo">Mon<span>Droit</span>Financier</a>
+    <p class="ft-p">Blog indépendant dédié à la vulgarisation financière et juridique pour les particuliers français et francophones.</p>
+    <div class="ft-disc">⚠️ Ce site est purement éducatif et informatif. Il ne constitue pas un conseil en assurance, un acte d'intermédiation réglementé, ni une prestation juridique. Les rapports ContratScan sont fournis à titre indicatif uniquement. Consultez un professionnel agréé pour toute décision.</div>
+  </div>
+  <div>
+    <p class="ft-col-t">Sinistres</p>
+    <div class="ft-links">
+      <a href="#">Comprendre son contrat</a>
+      <a href="#">Contester une décision</a>
+      <a href="#">Trouver un expert</a>
+      <a href="#">Délais de recours</a>
+    </div>
+  </div>
+  <div>
+    <p class="ft-col-t">Crédit</p>
+    <div class="ft-links">
+      <a href="#">Renégociation</a>
+      <a href="#">Assurance emprunteur</a>
+      <a href="#">Rachat de crédit</a>
+      <a href="#">Simulation</a>
+    </div>
+  </div>
+  <div>
+    <p class="ft-col-t">ContratScan</p>
+    <div class="ft-links">
+      <a href="#contratscan">Détecter mes doublons</a>
+      <a href="#contratscan">Avis de prise en charge</a>
+      <a href="#">À propos</a>
+      <a href="#">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+<div class="ft-bottom">
+  <span>© 2025 MonDroitFinancier — Blog éducatif indépendant</span>
+  <span>Mentions légales · Confidentialité · ContratScan CGU</span>
+</div>
+
+<script>
+// ── LANGUE ──
+let lang='fr';
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    const t=el.getAttribute('data-'+l)||el.getAttribute('data-fr');
+    if(t)el.textContent=t;
+  });
+}
+
+// ── MODAL ──
+let currentService=1;
+function openModal(type){
+  document.getElementById('payModal').classList.add('open');
+}
+function closeModal(){document.getElementById('payModal').classList.remove('open');}
+function processPay(){
+  const email=document.getElementById('pay-email').value;
+  if(!email||!email.includes('@')){alert('Veuillez saisir un email valide.');return;}
+  closeModal();
+  document.getElementById('csTool').style.display='block';
+  document.getElementById('csTool').scrollIntoView({behavior:'smooth'});
+  setupTool();
+}
+function demoAccess(){
+  closeModal();
+  document.getElementById('csTool').style.display='block';
+  document.getElementById('csTool').scrollIntoView({behavior:'smooth'});
+  setupTool();
+}
+window.addEventListener('click',e=>{if(e.target===document.getElementById('payModal'))closeModal();});
+
+// ── SERVICE SELECTION ──
+function selectService(n){
+  currentService=n;
+  document.querySelectorAll('.service-card').forEach((c,i)=>c.classList.toggle('selected',i+1===n));
+  document.querySelectorAll('.btn-select').forEach((b,i)=>{
+    b.classList.toggle('active',i+1===n);
+    b.textContent=i+1===n?'✓ Sélectionné':'Choisir ce service';
+  });
+  openModal();
+}
+
+function setupTool(){
+  const lbl=document.getElementById('tool-service-label');
+  const t1=document.getElementById('tab1-label');
+  const t2=document.getElementById('tab2-label');
+  const uf=document.getElementById('upload-label');
+  const sg=document.getElementById('situationFieldGroup');
+  const uzTitle=document.getElementById('upload-zone-title');
+  if(currentService===1){
+    lbl.textContent='Service 1 — Détection de doublons';
+    t1.textContent='Vos contrats';
+    t2.textContent='Votre situation';
+    uf.textContent='Uploadez vos contrats (PDF ou photos — 1 à 5 fichiers)';
+    sg.style.display='none';
+    uzTitle.textContent='Glissez vos contrats ici ou cliquez pour parcourir';
+  } else {
+    lbl.textContent='Service 2 — Avis de prise en charge';
+    t1.textContent='Votre sinistre';
+    t2.textContent='Vos informations';
+    uf.textContent='Uploadez le contrat concerné (PDF ou photo — 1 fichier)';
+    sg.style.display='block';
+    uzTitle.textContent='Glissez votre contrat ici ou cliquez pour parcourir';
+  }
+  goStep(1);
+}
+
+// ── FILES ──
+let uploadedFiles=[];
+function handleFiles(files){
+  Array.from(files).forEach(f=>{
+    if(!uploadedFiles.find(u=>u.name===f.name)){
+      uploadedFiles.push(f);
+      renderFiles();
+    }
+  });
+}
+function renderFiles(){
+  const list=document.getElementById('fileList');
+  list.innerHTML='';
+  uploadedFiles.forEach((f,i)=>{
+    const div=document.createElement('div');
+    div.className='file-item';
+    div.innerHTML=`<span class="file-item-name">📄 ${f.name}</span><span style="font-size:.7rem;color:#333;">${(f.size/1024/1024).toFixed(1)} Mo</span><button class="file-remove" onclick="removeFile(${i})">✕</button>`;
+    list.appendChild(div);
+  });
+}
+function removeFile(i){uploadedFiles.splice(i,1);renderFiles();}
+
+// ── STEPS ──
+let chatStarted=false;
+function goStep(n){
+  document.querySelectorAll('.step-body').forEach((s,i)=>s.classList.toggle('active',i+1===n));
+  document.querySelectorAll('.step-tab').forEach((t,i)=>{
+    t.classList.remove('active','done');
+    if(i+1===n)t.classList.add('active');
+    else if(i+1<n)t.classList.add('done');
+  });
+  if(n===3&&!chatStarted){chatStarted=true;startAnalysis();}
+  if(n===4)buildReport();
+  document.getElementById('csTool').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── CHAT IA ──
+const history=[];
+function addMsg(role,html,typing=false){
+  const wrap=document.getElementById('chatWrap');
+  const div=document.createElement('div');
+  div.className='msg '+role;
+  const av=document.createElement('div');
+  av.className='avatar '+role;
+  av.textContent=role==='ai'?'IA':'Moi';
+  const bub=document.createElement('div');
+  bub.className='bubble '+role;
+  if(typing)bub.innerHTML='<span class="dots"><span></span><span></span><span></span></span>';
+  else bub.innerHTML=html;
+  div.appendChild(av);div.appendChild(bub);
+  wrap.appendChild(div);
+  wrap.scrollTop=wrap.scrollHeight;
+  return bub;
+}
+
+async function startAnalysis(){
+  const situation=document.getElementById('f-situation').value;
+  const famille=document.getElementById('f-famille').value;
+  const budget=document.getElementById('f-budget').value;
+  const infos=document.getElementById('f-infos').value;
+  const sinistre=document.getElementById('situationText').value;
+  const files=uploadedFiles.map(f=>f.name).join(', ')||'aucun fichier';
+
+  document.getElementById('chatWrap').innerHTML='';
+  history.length=0;
+
+  let systemPrompt,userPrompt;
+
+  if(currentService===1){
+    systemPrompt=`Tu es un expert en assurances français qui aide les particuliers à identifier les doublons de garanties dans leurs contrats. 
+Tu analyses de façon pédagogique, sans jamais conseiller de résilier un contrat spécifique. 
+Tu informes et éduques uniquement. Tu rappelles toujours les exclusions importantes.
+Tu réponds en HTML simple (strong, ul, li). Tu es direct, précis et bienveillant.
+IMPORTANT : Tu termines toujours par rappeler que ton analyse est éducative et que l'assuré doit contacter ses assureurs pour toute décision.`;
+    userPrompt=`Analyse la situation suivante pour détecter les doublons de garanties.
+Fichiers uploadés : ${files}
+Situation professionnelle : ${situation||'non renseignée'}
+Situation familiale : ${famille||'non renseignée'}
+Budget mensuel assurances : ${budget||'non renseigné'}
+Infos complémentaires : ${infos||'aucune'}
+
+Commence par un accueil chaleureux, puis identifie les doublons potentiels typiques selon ce profil, rappelle les exclusions communes, et pose une question de suivi pertinente. Maximum 220 mots.`;
+  } else {
+    systemPrompt=`Tu es un expert en assurances français qui aide les particuliers à comprendre si leur situation est couverte par leur contrat.
+Tu analyses les garanties et exclusions de façon pédagogique.
+Tu ne conseilles jamais de résiliation ni ne recommandes de produit.
+Tu réponds : "couvert probable", "non couvert", ou "à vérifier selon clause X".
+Tu rappelles toujours les exclusions applicables.
+Tu réponds en HTML simple (strong, ul, li). Sois clair et précis.
+IMPORTANT : Tu termines par une mention légale rappelant que ton analyse est éducative.`;
+    userPrompt=`Analyse cette situation pour déterminer si elle est probablement couverte.
+Situation décrite : ${sinistre||'non décrite'}
+Contrat uploadé : ${files}
+Situation professionnelle : ${situation||'non renseignée'}
+Infos complémentaires : ${infos||'aucune'}
+
+Commence par reformuler la situation, puis donne ton analyse de couverture probable, cite les garanties et exclusions pertinentes, et pose une question de clarification si nécessaire. Maximum 220 mots.`;
+  }
+
+  history.push({role:'user',content:userPrompt});
+  const typing=addMsg('ai','',true);
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        system:systemPrompt,
+        messages:history
+      })
+    });
+    const data=await res.json();
+    const text=data.content?.map(c=>c.text||'').join('')||'Analyse indisponible momentanément.';
+    typing.innerHTML=text;
+    history.push({role:'assistant',content:text.replace(/<[^>]*>/g,'')});
+  }catch(e){
+    if(currentService===1){
+      typing.innerHTML=`<strong>Analyse préliminaire de votre profil</strong><br><br>
+Basé sur les éléments fournis, voici les doublons typiques à vérifier :<ul>
+<li>La <strong>protection juridique</strong> est souvent incluse dans la MRH — vérifiez si vous avez un contrat séparé</li>
+<li>Si vous avez une <strong>carte bancaire premium</strong>, l'assurance voyage peut être couverte deux fois</li>
+<li>La <strong>garantie décès/invalidité</strong> peut se chevaucher entre prévoyance et assurance emprunteur</li>
+<li>En tant que salarié, la <strong>prévoyance collective</strong> de l'employeur peut rendre votre contrat individuel redondant</li>
+</ul>
+<em>Avez-vous une carte Visa Premier ou Mastercard Gold ?</em>`;
+    } else {
+      typing.innerHTML=`<strong>Analyse de votre situation</strong><br><br>
+Pour déterminer si votre situation est couverte, j'ai besoin de croiser les éléments suivants :<ul>
+<li>Les <strong>garanties souscrites</strong> dans votre contrat (responsabilité civile, dommages tous accidents...)</li>
+<li>Les <strong>exclusions applicables</strong> (événement déclaré dans les délais ? Conditions respectées ?)</li>
+<li>La <strong>franchise</strong> applicable à ce type de sinistre</li>
+</ul>
+Pouvez-vous me préciser : <em>quel type de contrat est concerné et depuis combien de temps êtes-vous assuré ?</em>`;
+    }
+    history.push({role:'assistant',content:'Analyse préliminaire complète.'});
+  }
+}
+
+async function sendMsg(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  input.value='';
+  addMsg('user',msg);
+  history.push({role:'user',content:msg});
+  const typing=addMsg('ai','',true);
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:800,
+        system:currentService===1
+          ?'Tu es un expert en assurances qui détecte les doublons de garanties. Réponds en HTML simple. Sois pédagogique, pas prescriptif. Ne conseille jamais de résilier.'
+          :'Tu es un expert en assurances qui analyse la couverture. Réponds en HTML simple. Sois clair sur couvert/non couvert/à vérifier. Rappelle les exclusions.',
+        messages:history
+      })
+    });
+    const data=await res.json();
+    const text=data.content?.map(c=>c.text||'').join('')||'Réponse indisponible.';
+    typing.innerHTML=text;
+    history.push({role:'assistant',content:text.replace(/<[^>]*>/g,'')});
+  }catch(e){
+    typing.innerHTML='Merci pour cette précision. Cela affine l\'analyse — consultez le rapport complet à l\'étape suivante.';
+  }
+  document.getElementById('chatWrap').scrollTop=99999;
+}
+
+// ── RAPPORT ──
+function buildReport(){
+  const container=document.getElementById('reportContainer');
+  const situation=document.getElementById('f-situation').value;
+  const sinistre=document.getElementById('situationText').value;
+
+  let html='';
+
+  if(currentService===1){
+    const doublons=[
+      {sev:'h',title:'Protection juridique — doublon probable',badge:'rb-d',label:'Doublon',body:'La garantie protection juridique est <strong>très souvent incluse dans les contrats MRH</strong>. Si vous avez un contrat séparé, vous payez probablement deux fois. Vérifiez les conditions générales de votre MRH, section "garanties incluses".',save:'80 – 150 € / an'},
+      {sev:'h',title:'Assurance voyage — couverte par carte bancaire',badge:'rb-d',label:'Doublon',body:'Les cartes <strong>Visa Premier, Mastercard Gold et Infinite</strong> incluent une assurance voyage (annulation, rapatriement, bagages). Si vous possédez l\'une de ces cartes, votre assurance voyage séparée est probablement inutile.',save:'60 – 200 € / an'},
+      situation==='salarie'?{sev:'m',title:'Prévoyance individuelle vs prévoyance employeur',badge:'rb-i',label:'À vérifier',body:'En tant que <strong>salarié</strong>, votre employeur vous couvre probablement via une prévoyance collective obligatoire. Votre contrat individuel peut être partiellement redondant. Vérifiez votre bulletin de salaire, ligne "prévoyance".',save:'100 – 250 € / an'}:null,
+      {sev:'l',title:'Exclusions importantes à connaître',badge:'rb-ok',label:'Information',body:'Quelle que soit votre couverture, vérifiez systématiquement : <strong>délais de déclaration</strong> (souvent 5 jours ouvrés), <strong>franchises applicables</strong>, <strong>valeur vénale vs valeur à neuf</strong>, et <strong>exclusions liées à la négligence</strong>.'}
+    ].filter(Boolean);
+
+    const nb=doublons.filter(d=>d.label!=='Information').length;
+    const saving=doublons.filter(d=>d.save).reduce((a,d)=>{const m=d.save.match(/(\d+)/);return m?a+parseInt(m[1]):a;},0);
+
+    html+=`<div class="result-score-bar">
+      <div class="score-num">${nb}</div>
+      <div class="score-info">
+        <h4>${nb} point(s) d'optimisation identifié(s)</h4>
+        <p>Économie potentielle estimée à partir de <strong style="color:var(--or)">${saving} € / an</strong></p>
+      </div>
+    </div>`;
+
+    doublons.forEach(d=>{
+      html+=`<div class="result-card">
+        <div class="rc-head">
+          <span class="sev sev-${d.sev}"></span>
+          <span class="rc-title">${d.title}</span>
+          <span class="rc-badge ${d.badge}">${d.label}</span>
+        </div>
+        <div class="rc-body">${d.body}${d.save?`<br><span class="save">💰 Économie potentielle : ${d.save}</span>`:''}</div>
+      </div>`;
+    });
+
+  } else {
+    html+=`<div class="result-score-bar">
+      <div class="score-num" style="font-size:1.8rem;color:var(--or);">Avis</div>
+      <div class="score-info">
+        <h4>Analyse de prise en charge</h4>
+        <p>Basée sur les éléments fournis — à confirmer avec votre assureur</p>
+      </div>
+    </div>`;
+
+    html+=`<div class="result-card">
+      <div class="rc-head"><span class="sev sev-m"></span><span class="rc-title">Situation analysée</span><span class="rc-badge rb-i">À vérifier</span></div>
+      <div class="rc-body">
+        ${sinistre?`<strong>Situation décrite :</strong> ${sinistre.substring(0,120)}...<br><br>`:''}
+        <strong>Points de vigilance identifiés :</strong>
+        <ul style="margin:.5rem 0 .5rem 1rem;">
+          <li>Vérifiez que le sinistre a été <strong>déclaré dans les délais contractuels</strong> (généralement 5 jours ouvrés)</li>
+          <li>Confirmez que toutes les <strong>conditions de garantie sont réunies</strong> (usage, lieu, circonstances)</li>
+          <li>Identifiez la <strong>franchise applicable</strong> à ce type de sinistre dans vos conditions particulières</li>
+          <li>Vérifiez l'absence d'<strong>exclusion spécifique</strong> à votre situation</li>
+        </ul>
+        <strong>Recommandation :</strong> Contactez votre assureur en mentionnant précisément les garanties concernées et demandez une réponse écrite.
+      </div>
+    </div>`;
+  }
+
+  // Mention légale
+  html+=`<div class="legal-box">
+    <p><strong>⚠️ Mention légale obligatoire —</strong> Ce rapport ContratScan est fourni à titre <strong>purement éducatif et informatif</strong>. Il ne constitue pas un conseil en assurance, un acte d'intermédiation réglementé, ni une recommandation professionnelle. Les analyses présentées sont des indications générales basées sur les éléments fournis et ne peuvent se substituer à l'examen complet de vos contrats par un professionnel agréé. <strong>Pour toute décision (résiliation, modification, réclamation), contactez directement vos assureurs ou un courtier agréé ORIAS.</strong></p>
+  </div>`;
+
+  // CTA
+  html+=`<div class="result-cta-box">
+    <p>Votre rapport a été envoyé par email. Souhaitez-vous aller plus loin ? Un courtier partenaire peut analyser votre situation complète gratuitement et sans engagement.</p>
+    <div class="cta-btns">
+      <button class="btn-cta-main" onclick="alert('Mise en relation — fonctionnalité à connecter à votre partenaire IOBSP')">Être mis en relation gratuitement</button>
+      <button class="btn-cta-sec" onclick="goStep(3)">Affiner avec l'IA</button>
+    </div>
+  </div>`;
+
+  container.innerHTML=html;
+}
+
+function resetTool(){
+  uploadedFiles=[];
+  chatStarted=false;
+  history.length=0;
+  document.getElementById('fileList').innerHTML='';
+  document.getElementById('chatWrap').innerHTML='';
+  document.getElementById('reportContainer').innerHTML='';
+  document.getElementById('situationText').value='';
+  document.getElementById('csTool').style.display='none';
+  document.getElementById('serviceGrid').scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.service-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.btn-select').forEach(b=>{b.classList.remove('active');b.textContent='Choisir ce service';});
+}
+
+// Drag & drop
+const uz=document.getElementById('uploadZone');
+uz.addEventListener('dragover',e=>{e.preventDefault();uz.classList.add('dragover');});
+uz.addEventListener('dragleave',()=>uz.classList.remove('dragover'));
+uz.addEventListener('drop',e=>{e.preventDefault();uz.classList.remove('dragover');handleFiles(e.dataTransfer.files);});
+document.getElementById('fileInput').addEventListener('change',function(){handleFiles(this.files);});
+</script>
+</body>
+</html>

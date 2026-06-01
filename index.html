@@ -25,8 +25,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--gris);text-decoration:none;transition:color .2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--noir);}
 .nav-right{display:flex;gap:.6rem;align-items:center;}
-.lang-btn{background:none;border:1px solid var(--gris-clair);padding:.3rem .65rem;font-size:.72rem;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--gris);transition:all .2s;border-radius:2px;}
-.lang-btn.active,.lang-btn:hover{border-color:var(--or);color:var(--or);}
 .nav-scan{background:var(--or);color:var(--noir);border:none;padding:.6rem 1.3rem;font-size:.75rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:opacity .2s;}
 .nav-scan:hover{opacity:.85;}
 
@@ -322,8 +320,6 @@ footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-colum
     <li><a href="#articles">Articles</a></li>
   </ul>
   <div class="nav-right">
-    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
     <button class="nav-scan" onclick="openModal('scan')">ContratScan — 6,99 €</button>
   </div>
 </nav>
@@ -331,23 +327,23 @@ footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-colum
 <!-- HERO -->
 <section class="hero">
   <div class="hero-l">
-    <p class="hero-eyebrow" data-fr="Le guide financier du particulier" data-en="The individual's financial guide">Le guide financier du particulier</p>
+    <p class="hero-eyebrow">Le guide financier du particulier</p>
     <h1 class="hero-h1">
-      <span data-fr="Ce que votre assureur" data-en="What your insurer">Ce que votre assureur</span>
-      <span data-fr="ne vous dira" data-en="will never">ne vous dira</span>
-      <em data-fr="jamais." data-en="tell you.">jamais.</em>
+      <span>Ce que votre assureur</span>
+      <span>ne vous dira</span>
+      <em>jamais.</em>
     </h1>
-    <p class="hero-sub" data-fr="Sinistres mal remboursés, crédit mal négocié, garanties payées deux fois. Nous décryptons vos contrats — avec l'intelligence artificielle." data-en="Poor payouts, bad credit deals, duplicate coverage. We decode your contracts — powered by AI.">Sinistres mal remboursés, crédit mal négocié, garanties payées deux fois. Nous décryptons vos contrats — avec l'intelligence artificielle.</p>
+    <p class="hero-sub">Sinistres mal remboursés, crédit mal négocié, garanties payées deux fois. Nous décryptons vos contrats — avec l'intelligence artificielle.</p>
     <div class="hero-actions">
-      <a href="#contratscan" class="btn-or" data-fr="Analyser mes contrats — 6,99 €" data-en="Analyse my contracts — €6.99">Analyser mes contrats — 6,99 €</a>
-      <a href="#piliers" class="btn-ghost" data-fr="Lire les guides" data-en="Read the guides">Lire les guides</a>
+      <a href="#contratscan" class="btn-or">Analyser mes contrats — 6,99 €</a>
+      <a href="#piliers" class="btn-ghost">Lire les guides</a>
     </div>
   </div>
   <div class="hero-r">
-    <div class="hero-badge"><b>IA</b><small data-fr="Propulsé" data-en="Powered">Propulsé</small></div>
-    <div class="stat"><b>1 / 3</b><p data-fr="Français sous-indemnisés après un sinistre" data-en="French people under-compensated after claims">Français sous-indemnisés après un sinistre</p></div>
-    <div class="stat"><b>+12 000 €</b><p data-fr="Économie moyenne sur un crédit bien renégocié" data-en="Average savings on a well-renegotiated mortgage">Économie moyenne sur un crédit bien renégocié</p></div>
-    <div class="stat"><b>68 %</b><p data-fr="Des assurés ont au moins une garantie en double" data-en="Of policyholders have at least one duplicate coverage">Des assurés ont au moins une garantie en double</p></div>
+    <div class="hero-badge"><b>IA</b><small>Propulsé</small></div>
+    <div class="stat"><b>1 / 3</b><p>Français sous-indemnisés après un sinistre</p></div>
+    <div class="stat"><b>+12 000 €</b><p>Économie moyenne sur un crédit bien renégocié</p></div>
+    <div class="stat"><b>68 %</b><p>Des assurés ont au moins une garantie en double</p></div>
   </div>
 </section>
 
@@ -355,38 +351,38 @@ footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-colum
 <section id="piliers">
   <a href="#" class="pilier p1">
     <span class="pilier-n">01</span>
-    <p class="pilier-tag" data-fr="Pilier 1 — Vos droits" data-en="Pillar 1 — Your rights">Pilier 1 — Vos droits</p>
-    <h2 class="pilier-h" data-fr="Sinistres & Litiges" data-en="Claims & Disputes">Sinistres & Litiges</h2>
-    <p class="pilier-p" data-fr="Comment obtenir ce que vous devez réellement recevoir. Recours, délais, erreurs à ne pas commettre." data-en="How to get what you're truly owed. Appeals, deadlines, mistakes to avoid.">Comment obtenir ce que vous devez réellement recevoir. Recours, délais, erreurs à ne pas commettre.</p>
+    <p class="pilier-tag">Pilier 1 — Vos droits</p>
+    <h2 class="pilier-h">Sinistres & Litiges</h2>
+    <p class="pilier-p">Comment obtenir ce que vous devez réellement recevoir. Recours, délais, erreurs à ne pas commettre.</p>
     <ul class="pilier-ul">
-      <li data-fr="Mon assureur refuse — que faire ?" data-en="My insurer refuses — what to do?">Mon assureur refuse — que faire ?</li>
-      <li data-fr="Contester un rapport d'expert" data-en="Challenging an expert report">Contester un rapport d'expert</li>
-      <li data-fr="Les 7 erreurs qui réduisent l'indemnisation" data-en="7 mistakes that reduce your payout">Les 7 erreurs qui réduisent l'indemnisation</li>
-      <li data-fr="Recours amiable vs tribunal" data-en="Amicable appeal vs. court">Recours amiable vs tribunal</li>
+      <li>Mon assureur refuse — que faire ?</li>
+      <li>Contester un rapport d'expert</li>
+      <li>Les 7 erreurs qui réduisent l'indemnisation</li>
+      <li>Recours amiable vs tribunal</li>
     </ul>
   </a>
   <a href="#" class="pilier p2">
     <span class="pilier-n">02</span>
-    <p class="pilier-tag" data-fr="Pilier 2 — Votre crédit" data-en="Pillar 2 — Your credit">Pilier 2 — Votre crédit</p>
-    <h2 class="pilier-h" data-fr="Crédit & Immobilier" data-en="Credit & Property">Crédit & Immobilier</h2>
-    <p class="pilier-p" data-fr="Ce que votre banque ne vous explique pas. Renégociation, assurance emprunteur, frais cachés." data-en="What your bank doesn't explain. Renegotiation, mortgage insurance, hidden fees.">Ce que votre banque ne vous explique pas. Renégociation, assurance emprunteur, frais cachés.</p>
+    <p class="pilier-tag">Pilier 2 — Votre crédit</p>
+    <h2 class="pilier-h">Crédit & Immobilier</h2>
+    <p class="pilier-p">Ce que votre banque ne vous explique pas. Renégociation, assurance emprunteur, frais cachés.</p>
     <ul class="pilier-ul">
-      <li data-fr="Renégocier : le bon moment et la méthode" data-en="Renegotiating: right time and method">Renégocier : le bon moment et la méthode</li>
-      <li data-fr="Assurance emprunteur : économisez 10 000 €" data-en="Mortgage insurance: save £10,000">Assurance emprunteur : économisez 10 000 €</li>
-      <li data-fr="Les frais de dossier abusifs" data-en="Abusive processing fees">Les frais de dossier abusifs</li>
-      <li data-fr="Rachat de crédit : pièges et opportunités" data-en="Loan buyout: traps and opportunities">Rachat de crédit : pièges et opportunités</li>
+      <li>Renégocier : le bon moment et la méthode</li>
+      <li>Assurance emprunteur : économisez 10 000 €</li>
+      <li>Les frais de dossier abusifs</li>
+      <li>Rachat de crédit : pièges et opportunités</li>
     </ul>
   </a>
   <a href="#" class="pilier p3">
     <span class="pilier-n">03</span>
-    <p class="pilier-tag" data-fr="Pilier 3 — Votre budget" data-en="Pillar 3 — Your budget">Pilier 3 — Votre budget</p>
-    <h2 class="pilier-h" data-fr="Finances Personnelles" data-en="Personal Finance">Finances Personnelles</h2>
-    <p class="pilier-p" data-fr="Comprendre ses contrats, gérer ses dettes, épargner sans se faire avoir. Le guide sans langue de bois." data-en="Understanding contracts, managing debt, saving smart. The no-nonsense guide.">Comprendre ses contrats, gérer ses dettes, épargner sans se faire avoir. Le guide sans langue de bois.</p>
+    <p class="pilier-tag">Pilier 3 — Votre budget</p>
+    <h2 class="pilier-h">Finances Personnelles</h2>
+    <p class="pilier-p">Comprendre ses contrats, gérer ses dettes, épargner sans se faire avoir. Le guide sans langue de bois.</p>
     <ul class="pilier-ul">
-      <li data-fr="Lire un contrat en 10 minutes" data-en="Read a contract in 10 minutes">Lire un contrat en 10 minutes</li>
-      <li data-fr="Surendettement : vos droits" data-en="Over-indebtedness: your rights">Surendettement : vos droits</li>
-      <li data-fr="PEL, Livret A, assurance-vie : que choisir ?" data-en="Savings accounts: what to choose?">PEL, Livret A, assurance-vie : que choisir ?</li>
-      <li data-fr="Frais bancaires cachés" data-en="Hidden bank charges">Frais bancaires cachés</li>
+      <li>Lire un contrat en 10 minutes</li>
+      <li>Surendettement : vos droits</li>
+      <li>PEL, Livret A, assurance-vie : que choisir ?</li>
+      <li>Frais bancaires cachés</li>
     </ul>
   </a>
 </section>
@@ -457,7 +453,7 @@ footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-colum
           <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.webp" style="display:none" onchange="handleFiles(this.files)">
           <div class="upload-icon">↑</div>
           <p class="upload-title" id="upload-zone-title">Glissez vos fichiers ici ou cliquez pour parcourir</p>
-          <p class="upload-sub" id="upload-zone-sub">PDF, JPG, PNG — Max 10 Mo par fichier</p>
+          <p class="upload-sub" id="upload-zone-sub">PDF, JPG, PNG — Max 3 Mo par fichier · 5 fichiers · 3 Mo au total</p>
         </div>
         <div class="uploaded-files" id="fileList"></div>
       </div>
@@ -545,8 +541,8 @@ footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-colum
 <!-- ARTICLES -->
 <section id="articles">
   <div class="sec-hdr">
-    <h2 data-fr="Articles récents" data-en="Recent articles">Articles récents</h2>
-    <a href="#" class="voir-tout" data-fr="Voir tout →" data-en="View all →">Voir tout →</a>
+    <h2>Articles récents</h2>
+    <a href="#" class="voir-tout">Voir tout →</a>
   </div>
   <div class="art-grid">
     <article class="art big">
@@ -631,17 +627,6 @@ footer{background:#060606;padding:3.5rem 2.5rem;display:grid;grid-template-colum
 </div>
 
 <script>
-// ── LANGUE ──
-let lang='fr';
-function setLang(l){
-  lang=l;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
-  document.querySelectorAll('[data-fr]').forEach(el=>{
-    const t=el.getAttribute('data-'+l)||el.getAttribute('data-fr');
-    if(t)el.textContent=t;
-  });
-}
-
 // ── MODAL ──
 let currentService=1;
 function openModal(type){
@@ -702,13 +687,48 @@ function setupTool(){
 
 // ── FILES ──
 let uploadedFiles=[];
+const MAX_FICHIERS=5;
+const TAILLE_MAX_FICHIER=3*1024*1024;   // 3 Mo par fichier
+const TAILLE_MAX_TOTALE=3*1024*1024;    // 3 Mo au total (limite imposée par la fonction serverless)
 function handleFiles(files){
   Array.from(files).forEach(f=>{
+    if(uploadedFiles.length>=MAX_FICHIERS){alert('Maximum '+MAX_FICHIERS+' fichiers.');return;}
+    if(f.size>TAILLE_MAX_FICHIER){alert('« '+f.name+' » dépasse 3 Mo et ne peut pas être ajouté.');return;}
+    const totalActuel=uploadedFiles.reduce((a,x)=>a+x.size,0);
+    if(totalActuel+f.size>TAILLE_MAX_TOTALE){alert('Taille totale maximale dépassée (3 Mo cumulés). Retirez un fichier ou choisissez-en un plus léger.');return;}
     if(!uploadedFiles.find(u=>u.name===f.name)){
       uploadedFiles.push(f);
       renderFiles();
     }
   });
+}
+// Lit un fichier et renvoie son contenu encodé en base64 (sans le préfixe data:...)
+function lireBase64(file){
+  return new Promise((resolve,reject)=>{
+    const r=new FileReader();
+    r.onload=()=>resolve(String(r.result).split(',')[1]);
+    r.onerror=()=>reject(new Error('Lecture impossible : '+file.name));
+    r.readAsDataURL(file);
+  });
+}
+// Construit les blocs de contenu pour l'API : PDF -> document, images -> image
+async function construireBlocsFichiers(){
+  const blocs=[];
+  for(const f of uploadedFiles){
+    const data=await lireBase64(f);
+    const nom=f.name.toLowerCase();
+    if(f.type==='application/pdf'||nom.endsWith('.pdf')){
+      blocs.push({type:'document',source:{type:'base64',media_type:'application/pdf',data}});
+    }else{
+      let media=f.type;
+      if(!media||!media.startsWith('image/')){
+        const ext=nom.split('.').pop();
+        media=ext==='png'?'image/png':ext==='webp'?'image/webp':'image/jpeg';
+      }
+      blocs.push({type:'image',source:{type:'base64',media_type:media,data}});
+    }
+  }
+  return blocs;
 }
 function renderFiles(){
   const list=document.getElementById('fileList');
@@ -761,7 +781,6 @@ async function startAnalysis(){
   const budget=document.getElementById('f-budget').value;
   const infos=document.getElementById('f-infos').value;
   const sinistre=document.getElementById('situationText').value;
-  const files=uploadedFiles.map(f=>f.name).join(', ')||'aucun fichier';
 
   document.getElementById('chatWrap').innerHTML='';
   history.length=0;
@@ -773,15 +792,15 @@ async function startAnalysis(){
 Tu analyses de façon pédagogique, sans jamais conseiller de résilier un contrat spécifique. 
 Tu informes et éduques uniquement. Tu rappelles toujours les exclusions importantes.
 Tu réponds en HTML simple (strong, ul, li). Tu es direct, précis et bienveillant.
+Les contrats de l'assuré sont joints à ce message sous forme de documents PDF ou d'images : analyse leur contenu réel.
 IMPORTANT : Tu termines toujours par rappeler que ton analyse est éducative et que l'assuré doit contacter ses assureurs pour toute décision.`;
-    userPrompt=`Analyse la situation suivante pour détecter les doublons de garanties.
-Fichiers uploadés : ${files}
+    userPrompt=`Analyse les contrats joints pour détecter les doublons de garanties.
 Situation professionnelle : ${situation||'non renseignée'}
 Situation familiale : ${famille||'non renseignée'}
 Budget mensuel assurances : ${budget||'non renseigné'}
 Infos complémentaires : ${infos||'aucune'}
 
-Commence par un accueil chaleureux, puis identifie les doublons potentiels typiques selon ce profil, rappelle les exclusions communes, et pose une question de suivi pertinente. Maximum 220 mots.`;
+Commence par un accueil chaleureux, puis identifie les doublons réels que tu relèves dans les documents joints, rappelle les exclusions importantes, et pose une question de suivi pertinente. Maximum 220 mots.`;
   } else {
     systemPrompt=`Tu es un expert en assurances français qui aide les particuliers à comprendre si leur situation est couverte par leur contrat.
 Tu analyses les garanties et exclusions de façon pédagogique.
@@ -789,53 +808,46 @@ Tu ne conseilles jamais de résiliation ni ne recommandes de produit.
 Tu réponds : "couvert probable", "non couvert", ou "à vérifier selon clause X".
 Tu rappelles toujours les exclusions applicables.
 Tu réponds en HTML simple (strong, ul, li). Sois clair et précis.
+Le contrat de l'assuré est joint à ce message : analyse son contenu réel.
 IMPORTANT : Tu termines par une mention légale rappelant que ton analyse est éducative.`;
-    userPrompt=`Analyse cette situation pour déterminer si elle est probablement couverte.
+    userPrompt=`Analyse la situation suivante au regard du contrat joint pour déterminer si elle est probablement couverte.
 Situation décrite : ${sinistre||'non décrite'}
-Contrat uploadé : ${files}
 Situation professionnelle : ${situation||'non renseignée'}
 Infos complémentaires : ${infos||'aucune'}
 
-Commence par reformuler la situation, puis donne ton analyse de couverture probable, cite les garanties et exclusions pertinentes, et pose une question de clarification si nécessaire. Maximum 220 mots.`;
+Commence par reformuler la situation, puis donne ton analyse de couverture probable en t'appuyant sur les garanties et exclusions réelles du contrat joint, et pose une question de clarification si nécessaire. Maximum 220 mots.`;
   }
 
-  history.push({role:'user',content:userPrompt});
   const typing=addMsg('ai','',true);
   try{
+    if(uploadedFiles.length===0){
+      throw new Error('Aucun document n\'a été ajouté. Revenez à l\'étape précédente pour téléverser vos contrats.');
+    }
+    const blocs=await construireBlocsFichiers();
+    const contenu=[{type:'text',text:userPrompt},...blocs];
+    history.push({role:'user',content:contenu});
+
     const res=await fetch('/.netlify/functions/analyze',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
         max_tokens:1000,
         system:systemPrompt,
         messages:history
       })
     });
     const data=await res.json();
-    const text=data.content?.map(c=>c.text||'').join('')||'Analyse indisponible momentanément.';
+    if(!res.ok){throw new Error(data.error||('Erreur '+res.status));}
+    const text=data.content?.map(c=>c.text||'').join('')||'';
+    if(!text){throw new Error('Réponse vide du service d\'analyse.');}
     typing.innerHTML=text;
     history.push({role:'assistant',content:text.replace(/<[^>]*>/g,'')});
   }catch(e){
-    if(currentService===1){
-      typing.innerHTML=`<strong>Analyse préliminaire de votre profil</strong><br><br>
-Basé sur les éléments fournis, voici les doublons typiques à vérifier :<ul>
-<li>La <strong>protection juridique</strong> est souvent incluse dans la MRH — vérifiez si vous avez un contrat séparé</li>
-<li>Si vous avez une <strong>carte bancaire premium</strong>, l'assurance voyage peut être couverte deux fois</li>
-<li>La <strong>garantie décès/invalidité</strong> peut se chevaucher entre prévoyance et assurance emprunteur</li>
-<li>En tant que salarié, la <strong>prévoyance collective</strong> de l'employeur peut rendre votre contrat individuel redondant</li>
-</ul>
-<em>Avez-vous une carte Visa Premier ou Mastercard Gold ?</em>`;
-    } else {
-      typing.innerHTML=`<strong>Analyse de votre situation</strong><br><br>
-Pour déterminer si votre situation est couverte, j'ai besoin de croiser les éléments suivants :<ul>
-<li>Les <strong>garanties souscrites</strong> dans votre contrat (responsabilité civile, dommages tous accidents...)</li>
-<li>Les <strong>exclusions applicables</strong> (événement déclaré dans les délais ? Conditions respectées ?)</li>
-<li>La <strong>franchise</strong> applicable à ce type de sinistre</li>
-</ul>
-Pouvez-vous me préciser : <em>quel type de contrat est concerné et depuis combien de temps êtes-vous assuré ?</em>`;
-    }
-    history.push({role:'assistant',content:'Analyse préliminaire complète.'});
+    history.length=0;
+    chatStarted=false;
+    typing.innerHTML=`<strong>L'analyse n'a pas pu aboutir.</strong><br><br>
+Une erreur est survenue : ${e.message}<br><br>
+Vérifiez votre connexion puis réessayez. Si le problème persiste, réduisez la taille ou le nombre de fichiers (3 Mo au total maximum).`;
   }
 }
 
@@ -852,20 +864,22 @@ async function sendMsg(){
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
         max_tokens:800,
         system:currentService===1
-          ?'Tu es un expert en assurances qui détecte les doublons de garanties. Réponds en HTML simple. Sois pédagogique, pas prescriptif. Ne conseille jamais de résilier.'
-          :'Tu es un expert en assurances qui analyse la couverture. Réponds en HTML simple. Sois clair sur couvert/non couvert/à vérifier. Rappelle les exclusions.',
+          ?'Tu es un expert en assurances qui détecte les doublons de garanties à partir des contrats déjà joints plus haut dans la conversation. Réponds en HTML simple. Sois pédagogique, pas prescriptif. Ne conseille jamais de résilier.'
+          :'Tu es un expert en assurances qui analyse la couverture à partir du contrat déjà joint plus haut dans la conversation. Réponds en HTML simple. Sois clair sur couvert/non couvert/à vérifier. Rappelle les exclusions.',
         messages:history
       })
     });
     const data=await res.json();
-    const text=data.content?.map(c=>c.text||'').join('')||'Réponse indisponible.';
+    if(!res.ok){throw new Error(data.error||('Erreur '+res.status));}
+    const text=data.content?.map(c=>c.text||'').join('')||'';
+    if(!text){throw new Error('Réponse vide.');}
     typing.innerHTML=text;
     history.push({role:'assistant',content:text.replace(/<[^>]*>/g,'')});
   }catch(e){
-    typing.innerHTML='Merci pour cette précision. Cela affine l\'analyse — consultez le rapport complet à l\'étape suivante.';
+    history.pop(); // retire le message utilisateur non traité pour garder l'historique cohérent
+    typing.innerHTML='<strong>Réponse indisponible.</strong> '+e.message+' Réessayez dans un instant.';
   }
   document.getElementById('chatWrap').scrollTop=99999;
 }
